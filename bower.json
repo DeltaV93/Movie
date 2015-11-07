@@ -1,0 +1,13 @@
+{
+  "name": "metamovie",
+  "version": "0.0.0",
+  "authors": [
+    "Valerie Sharp <Valeriesharp93@gmail.com>"
+  ],
+  "license": "none",
+  "private": true,
+  "dependencies": {
+  "bootstrap": "~4.0.0"
+  }
+}
+
