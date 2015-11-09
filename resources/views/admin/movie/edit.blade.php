@@ -16,8 +16,8 @@
 			</div>
 				<div class="panel-body">
 
-
-				{!! Form::model($movies, ['method' => 'PATCH', 'action' => ['AdminController@update', $movies->id]],array('class' => 'form-horizontal'))!!}
+				{{-- {!! Form::model($movies, ['method' => 'PATCH', ['url' => '/admin/{{$id}}/edit']],array('class' => 'form-horizontal'))!!} --}}
+				{!! Form::model($movies, ['method' => 'PATCH', 'url' => ['admin', $movies->id]],array('class' => 'form-horizontal'))!!}
 
 					@include('admin.partial.form',['submitButtonText' => 'Update Movie'])
 
