@@ -13,7 +13,7 @@ class MovieCreateRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,13 +24,14 @@ class MovieCreateRequest extends Request
     public function rules()
     {
         return [
-            'tag' => 'required|unique:tags,tag', 'title' => 'required',
+            'title' => 'required',
             'image' => 'required',
             'synopsis' => 'required',
-            'date' => 'required',
+            'release_date' => 'required|date',
             'director' => 'required',
-            'writer' => 'required',
+            'writer_1' => 'required',
             'actor' => 'required',
+            'date_created' => 'required|date',
             'rating' => 'required',
             'categories' => 'required',
             

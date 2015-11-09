@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
-use Request;
 use App\Http\Requests;
+use App\Http\Requests\MovieCreateRequest;
 use App\Http\Controllers\Controller;
 use App\Movie;
 use Carbon\Carbon;
@@ -36,7 +35,9 @@ class AdminController extends Controller
      */
     public function create()
     {
-        return view('admin.newMovie.create');
+        $date_created = Carbon::now();
+        
+        return view('admin.newMovie.create',compact('date_created'));
     }
 
     /**
@@ -45,52 +46,13 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(MovieCreateRequest $request)
     {
-        $input = Request::all();
-        $input['created_at'] = Carbon::now();
-        $input['updated_at'] = Carbon::now();
 
-        $movies = new Movie;
-        $movies->title     = $input['title'];
-        $movies->image     = $input['image'];
-        $movies->synopsis     = $input['synopsis'];
-        $movies->release_date     = $input['release_date'];
-        $movies->director     = $input['director'];
-        $movies->writer_1     = $input['writer_1'];
-        $movies->actor_1     = $input['actor'];
-        $movies->rating     = $input['rating'];
-        $movies->categories     = $input['categories'];
-        $movies->save();
+        
+        Movie::create($request->all());
 
-            // Session::flash('message', 'You added a new movie!');
-            // return Redirect::to('admin');
-            
-        return redirect('admin');
-
-        // return $input;
-        // $rules = array(
-        //     'title' => 'required',
-        //     'image' => 'required',
-        //     'synopsis' => 'required',
-        //     'release_date' => 'required',
-        //     'director' => 'required',
-        //     'writer' => 'required',
-        //     'actor' => 'required',
-        //     'rating' => 'required',
-        //     'categories' => 'required'
-        // );
-        // $validator = Validator::make(Input::all(), $rules);
-
-        // if ($validatior->fails()) {
-        //     return Redirect::to('admin/create')
-        //         ->withErrors($validator);
-        // } else {
-
-
-        //     Session::flash('message', 'You added a new movie!');
-        //     return Redirect::to('admin');
-        // }
+            return redirect('admin');
     }
 
     /**
