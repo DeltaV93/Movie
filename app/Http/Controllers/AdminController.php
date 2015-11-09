@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use App\Http\Requests\MovieCreateRequest;
+use App\Http\Requests\MovieRequest;
 use App\Http\Controllers\Controller;
-use App\Movie;
+use App\Http\Requests;
 use Carbon\Carbon;
+use App\Movie;
 
 class AdminController extends Controller
 {
@@ -36,7 +36,7 @@ class AdminController extends Controller
     public function create()
     {
         $date_created = Carbon::now();
-        
+
         return view('admin.newMovie.create',compact('date_created'));
     }
 
@@ -46,7 +46,7 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(MovieCreateRequest $request)
+    public function store(MovieRequest $request)
     {
 
         
@@ -63,7 +63,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -74,7 +74,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $movies = Movie::findOrFail($id);
+        return view('admin.movie.edit', compact('movies'));
     }
 
     /**
@@ -84,9 +85,13 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, MovieRequest $request)
     {
-        //
+        $movies = Movie::findOrFail($id);
+
+        $movies->update($request->all());
+
+        return redirect('admin');
     }
 
     /**

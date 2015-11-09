@@ -5,4 +5,5 @@ Todo List
 
 Being able to sort based on diff. values
 Make Search Work
+Add Flashing message
 Style the website

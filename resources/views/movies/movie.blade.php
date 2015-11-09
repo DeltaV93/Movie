@@ -76,7 +76,7 @@
 				<li>{{$movie->director}}</li>
 				<li>{{$movie->writer_1}}</li>
 				<li>{{$movie->writer_2}}</li>
-				<li>Relesase Date: {{$movie->release_date->format('Y')}}</li>
+				<li>Relesase Date: {{$movie->release_date->format('F Y')}}</li>
 				<li>Actors: {{$movie->actor_1}}, {{$movie->actor_2}}, {{$movie->actor_3}}</li>
 				<li>Categorie: {{$movie->categories}}</li>
 				<li>Rating: {{$movie->rating}}</li>

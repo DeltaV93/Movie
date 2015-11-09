@@ -29,13 +29,14 @@ Route::post('login', function() {
 
 Route::resource('admin', 'AdminController');
 Route::post('admin/create', 'AdminController@store');
+Route::post('admin/{slug}', 'AdminController@store');
 
 // ADMIN LOGIN
 $router->group([
   'middleware' => 'auth',
 ], function () {
   resource('admin', 'AdminController');
-  get('admin/add', 'AddController@index');
+  get('admin/add', 'AdminController@index');
 });
 
 // Logging in and out
