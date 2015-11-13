@@ -30,7 +30,7 @@ class AdminController extends Controller
         
                 ->with(compact('query'))
                 ->with(compact('movies'));
-        // return $query;
+        return $query;
         // 
         // $movies = Movie::all();
 
