@@ -27,9 +27,14 @@ Route::post('login', function() {
 });
 // ADMIN PAGE
 
+// Route::get('admin', function() {
+
+// });
 Route::resource('admin', 'AdminController');
 Route::post('admin/create', 'AdminController@store');
 Route::post('admin/{slug}', 'AdminController@store');
+
+
 
 // ADMIN LOGIN
 $router->group([

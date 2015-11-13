@@ -32,6 +32,7 @@
         <table class="table push-down">
           <thead>
             <tr>
+              <th>ID</th>
               <th>Image</th>
               <th>Movie Title</th>
               <th>Released</th>
@@ -47,6 +48,7 @@
           <tbody>
           @foreach ($movies as $movies)
             <tr>
+              <td>{{ $movies->id }}</td>
               <td><img style="width: 75px" src="{{ $movies->image}}" alt="Placeholder Movie Image"></td>
               <td><a href="/metamovies/{{ $movies->slug }}">{{ $movies->title }}</a></td>
               <td>{{ $movies->release_date->format('F Y') }}</td>
