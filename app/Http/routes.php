@@ -1,5 +1,6 @@
 <?php
-
+use App\Movie;
+use Carbon\Carbon;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -16,6 +17,8 @@ Route::get('/', function(){
 });
 Route::get('metamovies', 'MovieController@index');
 Route::get('metamovies/{slug}', 'MovieController@showMovie');
+
+// Search 
 
 // USER LOGIN
 Route::get('login', function() {

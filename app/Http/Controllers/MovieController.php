@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Movie;
 use Carbon\Carbon;
-
+use App\Movie;
+use Request;
 class MovieController extends Controller
 {
     public function index()
@@ -15,8 +15,15 @@ class MovieController extends Controller
     		->orderBy('release_date','desc')
     		->paginate(config('movies/movie_per_page'));
 
-
-        return view('movies.home' , compact('movies'));
+        $query = Request::get('q');
+        // return $query;
+        $find = $query
+            ? Movie::where('title', 'LIKE', '%$query%')->get()
+            : Movie::all();       
+                 
+        return view('movies.home')
+            ->with(compact('movies'))
+            ->with(compact('find'));
 
 
     }

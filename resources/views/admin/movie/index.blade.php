@@ -46,19 +46,19 @@
             </tr>
           </thead>
           <tbody>
-          @foreach ($movies as $movies)
+          @foreach ($find as $find)
             <tr>
-              <td>{{ $movies->id }}</td>
-              <td><img style="width: 75px" src="{{ $movies->image}}" alt="Placeholder Movie Image"></td>
-              <td><a href="/metamovies/{{ $movies->slug }}">{{ $movies->title }}</a></td>
-              <td>{{ $movies->release_date->format('F Y') }}</td>
-              <td>{{ $movies->director }}</td>
-              <td>{{ $movies->rating }}</td>
-              <td>{{ $movies->actor_1 }}, {{ $movies->actor_2 }}, {{ $movies->actor_3 }}</td> 
-              <td>{{ $movies->categories }}</td>
+              <td>{{ $find->id }}</td>
+              <td><img style="width: 75px" src="{{ $find->image}}" alt="Placeholder Movie Image"></td>
+              <td><a href="/metamovies/{{ $find->slug }}">{{ $find->title }}</a></td>
+              <td>{{ $find->release_date->format('F Y') }}</td>
+              <td>{{ $find->director }}</td>
+              <td>{{ $find->rating }}</td>
+              <td>{{ $find->actor_1 }}, {{ $find->actor_2 }}, {{ $find->actor_3 }}</td> 
+              <td>{{ $find->categories }}</td>
               <td><span class="glyphicon glyphicon-star"></span></td>
               <td><a href="/view" class="btn btn-primary">View</a></td>
-              <td><a href="/admin/{{$movies->id}}/edit" class="btn btn-success">Edit</a></td>
+              <td><a href="/admin/{{$find->id}}/edit" class="btn btn-success">Edit</a></td>
             </tr> 
             @endforeach
           </tbody>

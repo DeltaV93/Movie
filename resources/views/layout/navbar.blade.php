@@ -21,12 +21,22 @@
              <li class="active"><a href="#new_movies">New Movies</a></li>
              <li><a href="#movie_top">Top Movies</a></li>
          </ul>
-         <form class="navbar-form navbar-right" role="search">
-             <div class="form-group">
+            {!! Form::open(['method' => 'GET'], ['class' => 'navbar-form navbar-right'], ['role' => 'search'])!!}   
+                <div class="form-group">
+                  <div class="col-xs-offset-2 col-xs-8 input-group">
+            {!! Form::input('search', 'q', null, ['placeholder' => 'Find Stuff'],['class' => 'form-control']) !!}
+                  <div class="input-group-btn">
+                      <button type="submit" class="btn btn-default">Search</button>
+                  </div>
+            {!! Form::close()!!} 
+
+         {{-- <form class="navbar-form navbar-right" role="search"> --}}
+{{--              <div class="form-group">
                  <input type="text" class="form-control" placeholder="Search">
              </div>
              <button type="submit" class="btn btn-default">Search</button>
-         </form>
+         </form> --}}
+
          <ul class="nav navbar-nav navbar-right">
              <li><a href="./siginup">Sigin Up</a></li>
              <li class="dropdown">
@@ -44,7 +54,15 @@
 
 <div class="row">
     <div class="container">
-          <form role="form">
+            {!! Form::open(['method' => 'GET'])!!}   
+                <div class="form-group">
+                  <div class="col-xs-offset-2 col-xs-8 input-group">
+            {!! Form::input('search', 'q', null, ['placeholder' => 'Find Stuff'],['class' => 'form-control input-lg input_black']) !!}
+                  <div class="input-group-btn">
+                      <button type="submit" class="btn btn-primary btn-lg">Search</button>
+                  </div>
+            {!! Form::close()!!}         
+{{--           <form role="form">
             <div class="form-group">
               <label for="search" class="col-xs-2 control-label hide">Search</label>
               <div class="col-xs-offset-2 col-xs-8 input-group">
@@ -54,6 +72,6 @@
                   </div>
               </div>
             </div>
-          </form>
+          </form> --}}
     </div> 
 </div>

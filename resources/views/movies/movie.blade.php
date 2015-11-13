@@ -50,8 +50,16 @@
 
 <div class="row">
     <div class="container">
-          <form role="form">
-            <div class="form-group">
+          {{-- <form role="form"> --}}
+            {!! Form::open(['method' => 'GET'])!!}   
+                <div class="form-group">
+                  <div class="col-xs-offset-2 col-xs-8 input-group">
+            {!! Form::input('search', 'q', null, ['placeholder' => 'Find Stuff'],['class' => 'form-control input-lg input_black']) !!}
+                  <div class="input-group-btn">
+                      <button type="submit" class="btn btn-primary btn-lg">Search</button>
+                  </div>
+            {!! Form::close()!!}            
+{{--             <div class="form-group">
               <label for="search" class="col-xs-2 control-label hide">Search</label>
               <div class="col-xs-offset-2 col-xs-8 input-group">
                   <input type="text" class="form-control input-lg input_black" id="search" placeholder="Enter Movie Title">
@@ -59,8 +67,9 @@
                     <button type="submit" class="btn btn-primary btn-lg">Search</button>
                   </div>
               </div>
-            </div>
-          </form>
+            </div> --}}
+
+          {{-- </form> --}}
     </div> 
 </div>
 	

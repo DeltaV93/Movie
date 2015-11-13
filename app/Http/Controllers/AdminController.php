@@ -5,11 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MovieRequest;
 use Tmdb\Laravel\Facades\Tmdb;
-// use Illuminate\Http\Request;
-// use App\Http\Requests;
 use Carbon\Carbon;
 use App\Movie;
 use Request;
+use Input;
 
 class AdminController extends Controller
 {
@@ -20,22 +19,14 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $movies = Movie::where('release_date', '<=', Carbon::now())
-            ->orderBy('id','asc')
-            ->paginate(config('movies/movie_per_page'));
+        $query = Input::get('q');
+        // var_dump($query);
+        $find = $query
+            ? Movie::where('title', 'LIKE', "%$query%")->get()
+            : Movie::all();
 
-        $query = Request::get('q');
-        return $query;
         return view('admin.movie.index')
-        
-                ->with(compact('query'))
-                ->with(compact('movies'));
-        return $query;
-        // 
-        // $movies = Movie::all();
-
-        // return view('admin.movie.index')
-        //         ->withNewMovie($movie);
+            ->with(compact('find'));
 
     }
 
