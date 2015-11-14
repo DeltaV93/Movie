@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Pagination\Paginator;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MovieRequest;
 use Tmdb\Laravel\Facades\Tmdb;
@@ -19,11 +20,21 @@ class AdminController extends Controller
      */
     public function index()
     {
+        // $moive = Movie::create($request->all());
         $query = Input::get('q');
         // var_dump($query);
         $find = $query
-            ? Movie::where('title', 'LIKE', "%$query%")->get()
-            : Movie::all();
+            ? Movie::where('title', 'LIKE', "%$query%")
+            ->orwhere('synopsis', 'LIKE', "%$query%")
+            ->orwhere('director', 'LIKE', "%$query%")
+            ->orwhere('writer_1', 'LIKE', "%$query%")
+            ->orwhere('writer_2', 'LIKE', "%$query%")
+            ->orwhere('actor_1', 'LIKE', "%$query%")
+            ->orwhere('actor_2', 'LIKE', "%$query%")
+            ->orwhere('actor_3', 'LIKE', "%$query%")
+            ->orwhere('categories', 'LIKE', "%$query%")
+            ->get()
+            : Movie::paginate(10);
 
         return view('admin.movie.index')
             ->with(compact('find'));
