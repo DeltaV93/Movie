@@ -1,9 +1,10 @@
 @extends('admin.layout')
 
 @section('content')
+
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
         <div class="panel panel-default">
           
           <div class="panel-heading">
@@ -15,7 +16,7 @@
             </div>
           </div>
 
-          <div class="panel-body">
+          <div class="panel-body col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
             {!! Form::open(['method' => 'GET'])!!}   
                 <div class="form-group">
                   <div class="col-xs-offset-2 col-xs-8 input-group">
@@ -43,6 +44,7 @@
               <th>Stars</th>
               <th></th>
               <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -59,6 +61,14 @@
               <td><span class="glyphicon glyphicon-star"></span></td>
               <td><a href="/view" class="btn btn-primary">View</a></td>
               <td><a href="/admin/{{$find->id}}/edit" class="btn btn-success">Edit</a></td>
+              <td>
+                  <form action="/admin/{{ $find->id }}" method="POST">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                      <button class="btn btn-danger">Delete</button>
+                  </form>
+              </td>
+              {{-- <td><a href="#myModal"  type="button" data-toggle="modal" data-target="#myModal"class="btn btn-danger">Delete</a></td> --}}
             </tr> 
             @endforeach
           </tbody>
@@ -68,11 +78,22 @@
       </div>
     </div>
   </div>
+{{--  --}}
 
-<script>
-  $(function() {
-    $("#newMoviess-table").DataTable({
-    });
-  });
+{{--  --}}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script>
+  // $(function() {
+  //   $("#newMoviess-table").DataTable({
+  //   });
+  // });
+  // 
+// $(document).ready(function() {
+//   $('#myModal').modal('show'){
+//     })
+//   });
+// });
 </script>
+
 @stop

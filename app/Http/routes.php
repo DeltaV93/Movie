@@ -36,6 +36,11 @@ Route::post('login', function() {
 Route::resource('admin', 'AdminController');
 Route::post('admin/create', 'AdminController@store');
 Route::post('admin/{slug}', 'AdminController@store');
+// Route::post('admin/destroy', 'AdminController@destroy');
+Route::delete('/admin/{id}', 'AdminController@destroy');
+// 	return('admin.movie.destroy');
+// });
+// Route::post('admin/{slug}/destroy', 'AdminController@destroy');
 
 
 
