@@ -1,25 +1,52 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{config('movie.title')}}</title>
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="author" href="humans.txt">
-    </head>
-    <body>
-        <div class="container">
+@extends('layout/layout')
+@extends('layout/navbar')
+@section('content')
 
-             <div class="containder">
-                 <div class="movieFrame">
-                     {{-- <h1>{{ $movies->title }}</h1> --}}
-                 </div>
-             </div>
-             
-        </div>
-            <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-            <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-    </body>
-</html>
+<div class="container row">
+	<div id="new_movies" class="movieList">
+		<h2>Top Movies</h2>
+		<div class="container">
+		@foreach ($find as $movies)
+			
+			{{-- @for ($i = 0; $i < 1; $i++) --}}
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+					<a href="/metamovies/{{ $movies->slug }}"><h3>{{ $movies->title }}</h3></a>
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum dolorem alias accusantium temporibus</p>
+					{{-- <div><img src="{{ $movies->image }}" alt=""></div> --}}
+				</div>
+			{{-- @endfor --}}
+
+			@endforeach
+		</div>				
+	</div>
+</div>
+<div class="row">
+	<div class="container">
+		<div class="">
+			{!! $find->render() !!}	
+		</div>
+	</div>
+</div>	
+
+<div id="movie_top" class="movieList">
+	<h2>New Movies</h2>
+		<div class="container">
+			@foreach ($find as $movies)
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+					<a href="/metamovies/{{ $movies->slug }}"><h3>{{ $movies->title }}</h3></a>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum dolorem alias accusantium temporibus</p>
+					{{-- <div><img src="{{ $movies->image }}" alt=""></div> --}}
+				</div>
+			@endforeach 
+		</div>				
+	</div>
+</div>
+<div class="row">
+	<div class="container">
+		<div class="">
+			{!! $find->render() !!}	
+		</div>
+	</div>
+</div>	
+@stop

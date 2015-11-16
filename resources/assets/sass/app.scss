@@ -1,6 +1,19 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+$metaRed: #a80a22;
+$metaWhite: #ffffff;
+$metaBlack: #231F20;
+$metaGray: #bbbbbb;
 
 body {
-	background-color: black;
+	background-color: $metaBlack;
+	color: $metaGray;
 }
 
+h1, h2 {
+	color: $metaRed;
+}
+
+a:link {
+		color: $metaWhite;	
+
+}

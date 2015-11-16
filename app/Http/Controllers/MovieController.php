@@ -31,7 +31,7 @@ class MovieController extends Controller
             ->get()
             : Movie::simplePaginate(3);     
                  
-        return view('movies.home')
+        return view('movies.index')
             ->with(compact('movies'))
             ->with(compact('find'));
 

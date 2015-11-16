@@ -6,3 +6,6 @@ Todo List
 Being able to sort based on diff. values
 
 Style the website
+
+Make the TopMovie DB & New Movie DB
+
