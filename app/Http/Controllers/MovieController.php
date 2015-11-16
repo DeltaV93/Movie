@@ -5,21 +5,31 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Movie;
 use Request;
+use Input;
 class MovieController extends Controller
 {
     public function index()
     {
 
     	// CHECK TO SEE IF THERE IS A BETTER WAY TO DO PAGINATION IN 5.1
-    	$movies = Movie::where('release_date', '<=', Carbon::now())
-    		->orderBy('release_date','desc')
-    		->paginate(config('movies/movie_per_page'));
+    	// $movies = Movie::where('release_date', '<=', Carbon::now())
+    	// 	->orderBy('release_date','desc')
+    	// 	->paginate(3);
 
-        $query = Request::get('q');
-        // return $query;
+        $query = Input::get('q');
+        // var_dump($query);
         $find = $query
-            ? Movie::where('title', 'LIKE', '%$query%')->get()
-            : Movie::all();       
+            ? Movie::where('title', 'LIKE', "%$query%")
+            ->orwhere('synopsis', 'LIKE', "%$query%")
+            ->orwhere('director', 'LIKE', "%$query%")
+            ->orwhere('writer_1', 'LIKE', "%$query%")
+            ->orwhere('writer_2', 'LIKE', "%$query%")
+            ->orwhere('actor_1', 'LIKE', "%$query%")
+            ->orwhere('actor_2', 'LIKE', "%$query%")
+            ->orwhere('actor_3', 'LIKE', "%$query%")
+            ->orwhere('categories', 'LIKE', "%$query%")
+            ->get()
+            : Movie::simplePaginate(3);     
                  
         return view('movies.home')
             ->with(compact('movies'))

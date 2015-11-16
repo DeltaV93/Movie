@@ -20,9 +20,9 @@ class AdminController extends Controller
      */
     public function index()
     {
+
         // $moive = Movie::create($request->all());
         $query = Input::get('q');
-        // var_dump($query);
         $find = $query
             ? Movie::where('title', 'LIKE', "%$query%")
             ->orwhere('synopsis', 'LIKE', "%$query%")
@@ -33,7 +33,7 @@ class AdminController extends Controller
             ->orwhere('actor_2', 'LIKE', "%$query%")
             ->orwhere('actor_3', 'LIKE', "%$query%")
             ->orwhere('categories', 'LIKE', "%$query%")
-            ->get()
+            ->paginate(10)
             : Movie::paginate(10);
 
         return view('admin.movie.index')
@@ -65,7 +65,10 @@ class AdminController extends Controller
         
         Movie::create($request->all());
 
-            return redirect('admin');
+        \Session::flash('flash_message', 'You just added a new movie!');
+            return redirect('admin')->with([
+                    'flash_message' => 'You just added a new movie!'
+                ]);
     }
 
     /**
@@ -116,10 +119,13 @@ class AdminController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $find = Movie::findOrFail($id);
-         $find->delete();
+        // $find = Movie::findOrFail($id);
+         // $find->delete();
 
-         return redirect('/admin');
+         // return redirect('/admin');
+         
+        flash()->overlay('Are you sure you want to delete this movie?', 'To delete, or not to delete...');
+
            // Movie::findOrFail($id)->delete();
            // return redirect('/');
 

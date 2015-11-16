@@ -2,9 +2,7 @@
 
 
 Todo List
-<!-- Make search a globle thing -->
+<!-- Make search work as a scope -->
 Being able to sort based on diff. values
-
-Add Flashing message
 
 Style the website

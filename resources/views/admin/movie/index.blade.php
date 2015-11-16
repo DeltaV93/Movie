@@ -4,7 +4,7 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+      <div class="col-sm-2 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-10 col-lg-offset-1">
         <div class="panel panel-default">
           
           <div class="panel-heading">
@@ -16,18 +16,22 @@
             </div>
           </div>
 
-          <div class="panel-body col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
-            {!! Form::open(['method' => 'GET'])!!}   
+          <div class="panel-body col-sm-2 col-sm-offset-1 col-md-5 col-md-offset-1 col-lg-10 col-lg-offset-1">
+
+        {!! Form::open(['method' => 'GET'], ['role' => 'form'])!!}   
                 <div class="form-group">
-                  <div class="col-xs-offset-2 col-xs-8 input-group">
-            {!! Form::input('search', 'q', null, ['placeholder' => 'movie Stuff'],['class' => 'form-control input-lg input_black']) !!}
-                  <div class="input-group-btn">
+                <label for="search" class="col-xs-2 control-label hide">Search</label>
+            <div class="col-xs-offset-2 col-xs-8 input-group">
+              {!! Form::input('search', 'q', null, ['placeholder' => 'Movie Stuff'],['id' =>'search'],['class' => 'form-control input-lg input_black']) !!}
+              <div class="input-group-btn">
                       <button type="submit" class="btn btn-primary btn-lg">Search</button>
-                  </div>
-            {!! Form::close()!!}
               </div>
             </div>
-          </form>
+          </div>
+        {!! Form::close()!!}
+{{--               </div>
+            </div> --}}
+          {{-- </form> --}}
 
           </div>
         <table class="table push-down">
@@ -41,13 +45,14 @@
               <th>Rating</th>
               <th>Actors</th>              
               <th>Categories</th>
-              <th>Stars</th>
-              <th></th>
+              {{-- <th>Stars</th> --}}
+              {{-- <th></th> --}}
               <th></th>
               <th></th>
             </tr>
           </thead>
           <tbody>
+          <div class="col-sm-4 col-md-3 col-lg-5">
           @foreach ($find as $movie)
             <tr>
               <td>{{ $movie->id }}</td>
@@ -56,43 +61,36 @@
               <td>{{ $movie->release_date->format('F Y') }}</td>
               <td>{{ $movie->director }}</td>
               <td>{{ $movie->rating }}</td>
-              <td>{{ $movie->actor_1 }}, {{ $movie->actor_2 }}, {{ $movie->actor_3 }}</td> 
+              <td>{{ $movie->actor_1 }}</td> 
               <td>{{ $movie->categories }}</td>
-              <td><span class="glyphicon glyphicon-star"></span></td>
-              <td><a href="/view" class="btn btn-primary">View</a></td>
+              {{-- <td><span class="glyphicon glyphicon-star"></span></td> --}}
+              {{-- <td><a href="/view" class="btn btn-primary">View</a></td> --}}
               <td><a href="/admin/{{$movie->id}}/edit" class="btn btn-success">Edit</a></td>
               <td>
                   <form action="/admin/{{ $movie->id }}" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
-                      <button class="btn btn-danger">Delete</button>
+                      <button id="delete" class="btn btn-danger">Delete</button>
                   </form>
               </td>
               {{-- <td><a href="#myModal"  type="button" data-toggle="modal" data-target="#myModal"class="btn btn-danger">Delete</a></td> --}}
             </tr> 
-            @endforeach
-            
-          </tbody>
 
+            @endforeach
+          </tbody>
+          </div>
         </table>
+
     </div> <!-- /container -->
 
-{{--  --}}
 {!! $find->render() !!}
-{{--  --}}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+
+
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <script>
-  // $(function() {
-  //   $("#newMoviess-table").DataTable({
-  //   });
-  // });
-  // 
-// $(document).ready(function() {
-//   $('#myModal').modal('show'){
-//     })
-//   });
-// });
+  $('#flash-overlay-modal').modal();
 </script>
 
 @stop

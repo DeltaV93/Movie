@@ -30,7 +30,7 @@ class MovieRequest extends Request
             'release_date' => 'required|date',
             'director' => 'required',
             'writer_1' => 'required',
-            'actor' => 'required',
+            'actor_1' => 'required',
             'date_created' => 'required|date',
             'rating' => 'required',
             'categories' => 'required',

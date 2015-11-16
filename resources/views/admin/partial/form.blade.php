@@ -48,9 +48,9 @@
 				</div>
 
 				<div class="form-group">
-						{!! Form::label('actor', 'Actor',array('class' => 'col-md-3 control-label')) !!}
+						{!! Form::label('actor_1', 'Actor',array('class' => 'col-md-3 control-label')) !!}
 					<div class="col-md-8">
-						{!! Form::text('actor', Input::old('actor'), array('class' => 'form-control')) !!}
+						{!! Form::text('actor_1', Input::old('actor_1'), array('class' => 'form-control')) !!}
 					</div>
 				</div>
 
@@ -71,7 +71,7 @@
 				<div class="form-group">
 						{!! Form::label('categories', 'Categories',array('class' => 'col-md-3 control-label')) !!}
 					<div class="col-md-8">
-						{!! Form::select('categories', array('Drama', 'Action', 'Comedy', 'Suspense', 'Horror', 'Western', 'Romance'), Input::old('categories'), array('class' => 'form-control')) !!}
+						{!! Form::select('categories', array('d' =>'Drama', 'a' => 'Action', 'c' => 'Comedy','s' => 'Suspense','h' => 'Horror', 'w' =>'Western','r' => 'Romance'), Input::old('categories'), array('class' => 'form-control')) !!}
 					</div>
 				</div>
 
