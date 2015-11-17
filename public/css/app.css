@@ -3,9 +3,13 @@ body {
   color: #bbbbbb; }
 
 h1, h2 {
-  color: #a80a22; }
+  color: #d30d2b; }
 
 a:link {
   color: #ffffff; }
+
+div .movieList .topMovies img {
+  height: 200px;
+  width: 250px; }
 
 /*# sourceMappingURL=app.css.map */

@@ -63,6 +63,7 @@
               <td>{{ $movie->rating }}</td>
               <td>{{ $movie->actor_1 }}</td> 
               <td>{{ $movie->categories }}</td>
+              <td>{{ $movie->images }}</td>
               {{-- <td><span class="glyphicon glyphicon-star"></span></td> --}}
               {{-- <td><a href="/view" class="btn btn-primary">View</a></td> --}}
               <td><a href="/admin/{{$movie->id}}/edit" class="btn btn-success">Edit</a></td>
