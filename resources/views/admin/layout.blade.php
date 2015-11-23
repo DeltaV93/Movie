@@ -5,7 +5,12 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Meta+ Movie</title>
-        @extends('layout.styles')
+        <!-- Latest compiled and minified CSS & JS -->
+        <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script src="//code.jquery.com/jquery.js"></script> 
+        {{-- @include('admin.partial.style') --}}
+        {{-- <link rel="stylesheet" media="screen" href=`"//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> --}}
+        <link rel="stylesheet" href="css/admin.css">
         
     </head>
 <body>
@@ -28,21 +33,10 @@
   </div>
 </nav>
 
-  <div class="container">
-    @if (Session::has('flash_message'))
-      <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <strong>{{ Session::get('flash_message') }}</strong>
-      </div>
-    @endif
-  </div>
-@yield('content')
-<script src="//code.jquery.com/jquery.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+@include('admin.partial.add')
 
-<script>
-$('div.alert').not('alert-success').delay(2000).slideUp(1000);
-</script>
+@yield('content')
+
 {{-- @yield('scripts') --}}
 
 </body>

@@ -15,10 +15,9 @@ use Carbon\Carbon;
 Route::get('/', function(){
   return redirect('/metamovies');
 });
+
 Route::get('metamovies', 'MovieController@index');
 Route::get('metamovies/{slug}', 'MovieController@showMovie');
-
-// Search 
 
 // USER LOGIN
 Route::get('login', function() {
@@ -29,20 +28,7 @@ Route::post('login', function() {
 	return 'Username:'.$_POST["username"].',Password: '.$_POST["password"];
 });
 // ADMIN PAGE
-
-// Route::get('admin', function() {
-
-// });
 Route::resource('admin', 'AdminController');
-Route::post('admin/create', 'AdminController@store');
-Route::post('admin/{slug}', 'AdminController@store');
-// Route::post('admin/destroy', 'AdminController@destroy');
-Route::delete('/admin/{id}', 'AdminController@destroy');
-// 	return('admin.movie.destroy');
-// });
-// Route::post('admin/{slug}/destroy', 'AdminController@destroy');
-
-
 
 // ADMIN LOGIN
 $router->group([

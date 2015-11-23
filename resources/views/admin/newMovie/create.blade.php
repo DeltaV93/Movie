@@ -1,5 +1,6 @@
 @extends('admin.layout')
 
+
 @section('content')
 <div class="container-fluid"> 
 <div class="row page-title-row">
@@ -16,7 +17,7 @@
 				<div class="panel-body">
 
 
-				{!! Form::open(['url' => 'admin'],array('class' => 'form-horizontal'))!!}
+				{!! Form::open(['url' => 'admin', 'file' => true],array('class' => 'form-horizontal'))!!}
 				@include('admin.partial.form',['submitButtonText' => 'Add Movie'])
 
 				{!! Form::close()!!}

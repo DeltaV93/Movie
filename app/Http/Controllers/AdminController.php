@@ -23,9 +23,9 @@ class AdminController extends Controller
 
         // $moive = Movie::create($request->all());
         $query = Input::get('q');
+
         $find = $query
             ? Movie::where('title', 'LIKE', "%$query%")
-            ->orwhere('synopsis', 'LIKE', "%$query%")
             ->orwhere('director', 'LIKE', "%$query%")
             ->orwhere('writer_1', 'LIKE', "%$query%")
             ->orwhere('writer_2', 'LIKE', "%$query%")
@@ -117,7 +117,7 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy($id,Request $request)
     {
         // $find = Movie::findOrFail($id);
          // $find->delete();

@@ -20,7 +20,6 @@ class MovieController extends Controller
         // var_dump($query);
         $find = $query
             ? Movie::where('title', 'LIKE', "%$query%")
-            ->orwhere('synopsis', 'LIKE', "%$query%")
             ->orwhere('director', 'LIKE', "%$query%")
             ->orwhere('writer_1', 'LIKE', "%$query%")
             ->orwhere('writer_2', 'LIKE', "%$query%")
@@ -28,7 +27,7 @@ class MovieController extends Controller
             ->orwhere('actor_2', 'LIKE', "%$query%")
             ->orwhere('actor_3', 'LIKE', "%$query%")
             ->orwhere('categories', 'LIKE', "%$query%")
-            ->get()
+            ->simplePaginate(5)
             : Movie::simplePaginate(3);     
                  
         return view('movies.index')

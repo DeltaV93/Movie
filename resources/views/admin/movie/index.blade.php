@@ -24,7 +24,7 @@
             <div class="col-xs-offset-2 col-xs-8 input-group">
               {!! Form::input('search', 'q', null, ['placeholder' => 'Movie Stuff'],['id' =>'search'],['class' => 'form-control input-lg input_black']) !!}
               <div class="input-group-btn">
-                      <button type="submit" class="btn btn-primary btn-lg">Search</button>
+                      <button type="submit" class=" search btn btn-primary btn-lg">Search</button>
               </div>
             </div>
           </div>
@@ -45,6 +45,7 @@
               <th>Rating</th>
               <th>Actors</th>              
               <th>Categories</th>
+              <th></th>
               {{-- <th>Stars</th> --}}
               {{-- <th></th> --}}
               <th></th>

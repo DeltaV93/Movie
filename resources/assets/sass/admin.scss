@@ -1,0 +1,112 @@
+$border-radius-base: 0;
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+$metaRed: #d30d2b;
+$metaWhite: #ffffff;
+
+$DARK: #151314;
+$DARK2: #1a1a1a;
+$DARK3: #262626;
+$DARK4: #565656;
+$tableBorder: #333;
+
+
+body {
+	background-color: $DARK;
+	color: $metaWhite;
+}
+
+.navbar-default {
+    background-color: $DARK2;
+    border-color: $DARK3;
+}
+// search button
+.search {
+	background-color: $metaRed;
+	border-color: #BB0C2C;
+	&:hover {
+		background-color: #D72540;
+		border-color: #BB0C2C;
+	}
+}
+
+.panel-default > .panel-heading {
+	h3 {
+		color: $metaRed;
+		font-size: 30px;
+		padding: 20px;	
+	}
+	background-color: $DARK2;
+	border-bottom-color: $tableBorder;
+}
+.panel-default {
+    // border-color: #181516;
+    border-color: $DARK3;
+    border-width: 2px;
+}
+.panel {
+    // background-color: #383536;
+    background-color: $DARK2;
+
+}
+
+table th{
+	color: $metaRed;
+}
+tr {
+	border-color: red;
+}
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td{
+	border-color: $tableBorder;
+}
+// table 
+.pagination li a {
+	color: gray;
+	background-color: $DARK2;
+	border-color: $DARK3;
+	&:hover{
+		background-color: $DARK2;
+		border-color: $DARK3;
+		color: $metaRed;	
+	}
+}
+.pagination{
+ > .disabled > span{
+		background-color: $DARK2;
+		border-color: $DARK3;
+	&:hover{
+		background-color: $DARK2;
+		border-color: $DARK3;
+			}
+		}
+	}
+.pagination >.active span, {
+		background-color: $metaRed;
+		border-color: #BB0C2C;
+		color: $metaWhite;
+		&:hover {
+		background-color: #D72540;
+		border-color: #BB0C2C;
+		}
+}
+
+// edit button 
+.btn-success {
+	background-color: #469d44;	
+	border-color: #316d2f;
+	&:hover {
+		background-color: #58a656;
+		border-color: #316d2f;
+	}
+}
+
+// Delete 
+.btn-danger {
+	background-color: #c92e2c;
+	border-color: #b22125;
+	&:hover {
+		background-color: #b9373a;
+		border-color: #b22125;
+	}
+
+}

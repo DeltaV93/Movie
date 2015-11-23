@@ -1,15 +1,7 @@
+@extends('layout.layout')
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>{{$movie->title}}</title>
-	<link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-	<script src="//code.jquery.com/jquery.js"></script>
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-</head>
-<body>
-<nav class="navbar navbar-default" role="navigation">
+@section('content')
+{{-- <nav class="navbar navbar-default" role="navigation">
      <!-- Brand and toggle get grouped for better mobile display -->
      <div class="navbar-header">
          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -46,7 +38,7 @@
              </li>
          </ul>
      </div><!-- /.navbar-collapse -->
- </nav>
+ </nav> --}}
 
 <div class="row">
     <div class="container">
@@ -94,3 +86,4 @@
 	</div>
 </body>
 </html>
+@stop
